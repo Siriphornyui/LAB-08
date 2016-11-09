@@ -172,6 +172,7 @@ public class TryCatch
  }
 ```
 <img src= " https://github.com/Siriphornyui/LAB-08/blob/master/81.jpg">
+
 ###2.
 ``` csharp
 using System;
@@ -214,6 +215,7 @@ namespace labb88
 }
 ```
 <img src= " https://github.com/Siriphornyui/LAB-08/blob/master/82.jpg">
+
 ###3.
 ``` csharp
 using System;
@@ -258,6 +260,7 @@ namespace labb88
 }
 ```
 <img src= "https://github.com/Siriphornyui/LAB-08/blob/master/83.jpg ">
+
 ###1.1.3. คำสั่ง ```throw```
 
 คำสั่ง ```throw``` ใช้เพื่อเปลี่ยนเส้นทางการทำงานของโปรแกรมโดยเจาะจง exception เป้าหมาย
