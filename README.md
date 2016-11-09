@@ -524,7 +524,52 @@ fri|	Friday	|Blue
 sat|	Saturday	|Purple
 อื่นๆ|	 ---|	---
 
+```CS
+using System;
 
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write(" Input day : ");
+            string day = Console.ReadLine();
+            string message;
+            switch (day.ToUpper())
+            {
+                case "SUN":
+                    message = "sun is Sunday ,color Red";
+                    break;
+                case "MON":
+                    message = "mon is Monday ,color Yellow";
+                    break;
+                case "TUE":
+                    message = "tue is Tuesday ,color Pink";
+                    break;
+                case "WED":
+                    message = "wed is Wednesday ,color Green";
+                    break;
+                case "THU":
+                    message = "fri is Thursday ,color Orange";
+                    break;
+                   
+                case "FRI":
+                    message = "fri is Friday ,color Blue";
+                    break;
+                case "SAT":
+                    message = "sat is Saturday ,color Purple";
+                    break;
+                default:
+                    message = "sat is --- ,color ---";
+                    break;
+            }
+            Console.WriteLine(message);
+        }
+    }
+}
+```
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/888.jpg" >
 ##Reference
 เนื้อหาในส่วนนี้เป็นอ้างอิงสำหรับการเขียนโปรแกรม
 
