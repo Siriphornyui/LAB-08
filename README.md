@@ -171,7 +171,9 @@ public class TryCatch
      }
  }
 ```
-<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/81.jpg">
+
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/81.jpg">
+
 
 ###2.
 ``` csharp
@@ -214,7 +216,7 @@ namespace labb88
     }
 }
 ```
-<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/82.jpg">
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/82.jpg ">
 
 ###3.
 ``` csharp
@@ -676,7 +678,7 @@ namespace labb88
     }
 }
 ```
-<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/813.jpg">
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/813.jpg">
 
 ###1.2.5. คำสั่ง ```switch```
 
