@@ -32,6 +32,7 @@
 20 }
 ```
 ผลที่ได้
+
 ```
 Line 1
 Line 2
@@ -49,6 +50,33 @@ Line 4
 Line 5
 Line 2
 Line 9
+```
+```csharp
+using System;
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        line1: Console.WriteLine("Line 1");
+            goto line4;
+        line2: Console.WriteLine("Line 2");
+            goto line9;
+        line3: Console.WriteLine("Line 3");
+        line4: Console.WriteLine("Line 4");
+        line5: Console.WriteLine("Line 5");
+            goto line2;
+        line6: Console.WriteLine("Line 6");
+        line7: Console.WriteLine("Line 7");
+        line8: Console.WriteLine("Line 8");
+        line9: Console.WriteLine("Line 9");
+            goto lineEnd;
+        line10: Console.WriteLine("Line 10");
+        lineEnd:;
+        }
+    }
+}
 ```
 ###1.1.2. try…catch…finally
 ประโยค ```try…catch…finally``` ใช้สำหรับการดักจับและจัดการข้อผิดพลาดของโปรแกรม ทั้งขณะทำงาน (Run Time Process) หรือในขณะเริ่มต้นทำงาน (Init Process) โดยเราจะวางคำสั่งที่คาดการว่าจะเกิดข้อผิดพลาดขึ้นไว้ในบล็อกของ ```Try``` และวางส่วนจัดการข้อผิดพลาดไว้ในบล็อกของ ```catch``` และถ้ามีการดำเนินการใดๆ ที่ต้องทำทั้งในกรณีที่มีและไม่มีข้อผิดพลาด ก็จะใส่ไว้ในบล็อกของ ```Finally``` ในคำสั่งนี้สามารถเขียนบล็อกของ ```catch``` ได้หลายบล็อก คำสั่งนี้มีประโยชน์มากในการทำงานกับระบบอินเตอร์เน็ต โดยเฉพาะในกรณีที่การเชื่อมต่อไม่เสถียร เพราะจะช่วยป้องกันการค้างของโปรแกรมของเราขณะเรียกข้อมูลจาก network ได้
@@ -143,6 +171,7 @@ public class TryCatch
      }
  }
 ```
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/81.jpg">
 ###2.
 ``` csharp
 using System;
@@ -157,6 +186,34 @@ public class TryCatch
      }
  }
 ```
+``` csharp
+แก้ไข
+using System;
+
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            object o2 = null;
+            try
+            {
+                int a = 0;
+                int b = 10;
+                b /= a;
+                Console.WriteLine(a);
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+}
+```
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/82.jpg">
 ###3.
 ``` csharp
 using System;
@@ -173,6 +230,34 @@ public class TryCatch
      }
  }
 ```
+``` csharp
+แก้ไข
+using System;
+
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                int value = 800000000;
+                checked // check for overflow
+                {
+                    int square = value * value;
+                    Console.WriteLine("{0} ^ 2 = {1}", value, square);
+                }
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+}
+```
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/83.jpg ">
 ###1.1.3. คำสั่ง ```throw```
 
 คำสั่ง ```throw``` ใช้เพื่อเปลี่ยนเส้นทางการทำงานของโปรแกรมโดยเจาะจง exception เป้าหมาย
@@ -242,6 +327,21 @@ public class ExceptionLearning
     }
  }
 ````
+DivideByZeroException 
+
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/84.jpg ">
+
+NullReferenceException 
+
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/85.jpg ">
+
+FileNotFoundException 
+
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/86.jpg">
+
+FormatException 
+
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/87.jpg ">
 
 ###เรื่องของ exception นี้ศึกษาเพิ่มเติมได้ [ที่นี่](http://msdn.microsoft.com/en-us/library/vstudio/2w8f0bss%28v=vs.100%29.aspx)
 
@@ -322,6 +422,43 @@ execute next line
         statement; // execute when condition = false
     }
 ```
+```cs
+using System;
+
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int randomNum = random.Next(0, 100);
+            Console.WriteLine("Number Random : " + randomNum);
+            Console.Write("Please Enter Number : ");
+            int y = Convert.ToInt32(Console.ReadLine());
+            if (y > randomNum)
+            {
+                Console.WriteLine("Too Hight, You loss!!");
+            }
+            if (y < randomNum)
+            {
+                Console.WriteLine("Too Low, You loss!!");
+            }
+            if (y == randomNum)
+            {
+                Console.WriteLine("Okay, You win!!");
+            }
+
+        }
+    }
+}
+```
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/88.jpg ">
+
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/89.jpg ">
+
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/810.jpg">
+
 **ตัวอย่าง** การใช้งานคำสั่ง ``if…else``
 
 ```cs
@@ -354,6 +491,39 @@ this line is always execute
 ให้เขียนโปรแกรมสุ่มตัวเลข (จากใบงานที่ 7) แล้วใช้คำสั่ง ```if…else``` โดยมีเงื่อนไขต่อไปนี้
 
 1. ถ้าค่าที่ผู้ใช้ป้อน เท่ากับ ค่าที่สุ่มมาได้ ให้พิมพ์ ```“Hooray, You win!!”``` ออกทางหน้าจอ มิฉะนั้นให้พิมพ์คำว่า ```“Sorry, You loss!!”```
+
+```cs
+sing System;
+
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int randomNum = random.Next(0, 100);
+            Console.WriteLine("Number Random : " + randomNum);
+            Console.Write("Please Enter Number : ");
+            int y = Convert.ToInt32(Console.ReadLine());
+            if (y == randomNum)
+            {
+                Console.WriteLine("Hooray, You win!!");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, You loss!!");
+            }
+
+
+        }
+    }
+}
+
+```
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/811.jpg ">
+
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/812.jpg">
 
 ###1.2.3.	คำสั่ง ```if``` ซ้อนกัน (nested if)
 คำสั่ง ```if``` สามารถเขียนซ้อนกันเป็นชั้นได้ เรียกว่า nested if มีรูปแบบดังนี้
@@ -447,6 +617,64 @@ Grade C
 
 3. รูปแบบการพิมพ์คือ score: [sss] grade: [gg] เมื่อ sss คือคะแนน และ gg คือ เกรดที่ได้
 
+```cs
+using System;
+
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int sss = random.Next(0, 100);
+
+            if (sss < 50)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : F");
+            }
+            else if (sss < 55)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : D");
+            }
+            else if (sss < 60)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : D+");
+            }
+            else if (sss < 65)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : C");
+            }
+            else if (sss < 70)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : C+");
+            }
+            else if (sss < 75)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : B");
+            }
+            else if (sss < 80)
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : B+");
+            }
+            else
+            {
+                Console.WriteLine("Score : " + sss);
+                Console.WriteLine("Grade : A");
+            }
+        }
+    }
+}
+```
+<img src= " https://github.com/Siriphornyui/LAB-08/blob/master/813.jpg">
+
 ###1.2.5. คำสั่ง ```switch```
 
 ในกรณีที่มีทางเลือกในการตัดสินใจเป็นจำนวนมาก ไม่เป็นการสะดวกที่จะเขียนเป็นโปรแกรมยาวๆ เช่นในกรณีของคำสั่ง if…else…if ภาษา C# มีคำสั่งตัดสินใจเลือกทิศทางของโปรแกรมแบบหลายทางเลือกให้ใช้คือคำสั่ง switch ซึ่งรูปแบบการใช้งาน ดังนี้
@@ -524,6 +752,53 @@ fri|	Friday	|Blue
 sat|	Saturday	|Purple
 อื่นๆ|	 ---|	---
 
+```cs
+using System;
+
+namespace labb88
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write(" Input day : ");
+            string day = Console.ReadLine();
+            string message;
+            switch (day.ToUpper())
+            {
+                case "SUN":
+                    message = "sun is Sunday ,color Red";
+                    break;
+                case "MON":
+                    message = "mon is Monday ,color Yellow";
+                    break;
+                case "TUE":
+                    message = "tue is Tuesday ,color Pink";
+                    break;
+                case "WED":
+                    message = "wed is Wednesday ,color Green";
+                    break;
+                case "THU":
+                    message = "fri is Thursday ,color Orange";
+                    break;
+
+                case "FRI":
+                    message = "fri is Friday ,color Blue";
+                    break;
+                case "SAT":
+                    message = "sat is Saturday ,color Purple";
+                    break;
+                default:
+                    message = "sat is --- ,color ---";
+                    break;
+            }
+            Console.WriteLine(message);
+        }
+    }
+}
+```
+
+<img src= "https://github.com/Siriphornyui/LAB-08/blob/master/888.jpg">
 
 ##Reference
 เนื้อหาในส่วนนี้เป็นอ้างอิงสำหรับการเขียนโปรแกรม
